@@ -12,22 +12,35 @@
 
   {% if pagename != 'search' %}
   <div id="notes">
-    <div id="cyReward" class="reward" role="cylabs" data-use="reward" sid="userguide3/{{ pagename|e }}"></div>
   {% if pagename != 'general/welcome' and pagename != 'index' and pagename != 'DCO' and pagename != 'license' %}
-    <!-- 评论框 start -->
-    <div id="SOHUCS" sid="userguide3/{{ pagename|e }}"></div>
-    <script>
-    (function(){
-    var appid = 'cysUhlHaQ';
-    var conf = 'prod_13204b098623005ce9934964677924bd';
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    if (width < 960) {
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
-    </script>
-    <!-- 评论框 end -->
+<!-- 评论框 start -->
+<div id="schnack-comments"></div>
+<link rel="stylesheet" href="/assets/css/comments.css">
+<script src="https://comments.codeigniter.org.cn/client.js"></script>
+<script>
+new Schnack({
+  target: '#schnack-comments',
+  slug: encodeURIComponent('userguide3/{{ pagename|e }}'),
+  host: 'https://comments.codeigniter.org.cn',
+  partials: {
+    Preview: '预览',
+    Edit: '编辑',
+    SendComment: '提交',
+    Cancel: '取消',
+    Or: '或',
+    Mute: '关闭提醒',
+    UnMute: '打开提醒',
+    PostComment: '写出你的心得体会或注解，请不要在这里提问。支持 Markdown。',
+    AdminApproval: '待审核评论',
+    WaitingForApproval: '请等待管理员审核你的内容',
+    SignInVia: '发表评论请登录：',
+    Reply: '回复',
+    LoginStatus: '(已登录为 <span class="schnack-user">@%USER%</span> :: <a class="schnack-signout" href="javascript:;">退出</a>)'
+  }
+})
+</script>
+<!-- 评论框 end -->
   {% endif %}
-    <script src="https://changyan.itc.cn/js/lib/jquery.js"></script>
-    <script src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysUhlHaQ"></script>
   </div>
   {% endif %}
 
